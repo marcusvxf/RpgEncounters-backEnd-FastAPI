@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from ..controllers import encounter_controller
+from controllers import encounter_controller
 
 router = APIRouter(prefix="/encounter",
     tags=["encounter"],

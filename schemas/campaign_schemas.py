@@ -3,7 +3,7 @@ from typing import Union
 from pydantic import BaseModel
 
 class CampaignCreator(BaseModel):
-    title:str
+    name:str
     description: Union[str, None] = None
 
 class Campaign(BaseModel):

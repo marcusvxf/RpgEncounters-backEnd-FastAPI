@@ -10,6 +10,5 @@ class Encounter(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(200), unique=True, index=True)
     is_active = Column(Boolean, default=True)
-
-    items = relationship("Item", back_populates="owner")
+    campaign_id = Column(Integer,ForeignKey("tb_campaign.id"))
     

@@ -1,4 +1,4 @@
-from .. import models
+
 from sqlalchemy.orm import Session
 
 async def list_my_encounters():

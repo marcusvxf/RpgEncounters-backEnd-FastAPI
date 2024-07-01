@@ -27,5 +27,5 @@ After, run the migrations :
 
 Now run the application :
 ``` bash
-    $ uvicorn app.main:app --reload
+    $ uvicorn main:app --reload
 ```
