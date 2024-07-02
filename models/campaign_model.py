@@ -13,3 +13,5 @@ class Campaign(Base):
     description = Column(String(500))
     is_active = Column(Boolean, default=True)
     
+    encounters = relationship("tb_encounters",back_populates="campaign")
+
