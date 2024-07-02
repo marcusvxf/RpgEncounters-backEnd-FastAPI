@@ -16,12 +16,12 @@ def get_db():
         db.close()
 
 @router.get("/", response_model=list[campaign_schemas.Campaign])
-async def list_encounters(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    data = await campaign_controller.list_my_campaigns(db,limit,skip)
+async def list_campaign(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    data = await campaign_controller.list_my(db,limit,skip)
     return {"data":data}
 
 @router.post("/", response_model=campaign_schemas.Campaign)
-async def list_encounters(campaign_data:campaign_schemas.CampaignCreator, db: Session = Depends(get_db)):
-    data = await campaign_controller.create_campaign(db,campaign_data)
+async def create_campaign(campaign_data:campaign_schemas.CampaignCreator, db: Session = Depends(get_db)):
+    data = await campaign_controller.create(db,campaign_data)
     return data
 
