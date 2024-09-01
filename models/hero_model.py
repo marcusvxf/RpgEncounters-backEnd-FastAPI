@@ -12,5 +12,5 @@ class Hero(Base):
     is_active = Column(Boolean, default=True)
     group_id = Column(Integer,ForeignKey("tb_group.id"))
     
-    group = relationship("tb_group",back_populates="heroes")
+    group = relationship("Group",back_populates="heroes")
 

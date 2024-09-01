@@ -1,5 +1,6 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
+from models import group_model,creature_model
 
 from database import Base
 
@@ -14,6 +15,7 @@ class Encounter(Base):
     group_id = Column(Integer,ForeignKey("tb_group.id"))
 
 
-    campaign = relationship("tb_campaign",back_populates="encounters")
-    group = relationship("tb_group",back_populates="encounters")
+    groups = relationship("Group",back_populates="encounters")
+    campaigns = relationship("Campaign",back_populates="encounters")
+    creatures = relationship("Creature",secondary=creature_model.encounter_creature,back_populates="encounters")
 

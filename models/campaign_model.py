@@ -1,7 +1,8 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String,Table
 from sqlalchemy.orm import relationship
 
 from database import Base
+from models import group_model
 
 
 class Campaign(Base):
@@ -12,5 +13,6 @@ class Campaign(Base):
     description = Column(String(500))
     is_active = Column(Boolean, default=True)
     
-    encounters = relationship("tb_encounter",back_populates="campaign")
+    encounters = relationship("Encounter",back_populates="campaigns")
+    groups = relationship("Group",secondary=group_model.group_campaign,back_populates="campaigns")
 
