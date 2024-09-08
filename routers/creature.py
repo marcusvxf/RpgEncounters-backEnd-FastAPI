@@ -19,13 +19,13 @@ def get_db():
 
 
 @router.post("/", response_model=creature_schemas.Creature)
-async def create_creature(creature_data:creature_schemas, db: Session = Depends(get_db)):
+async def create_creature(creature_data:creature_schemas.CreatureCreator, db: Session = Depends(get_db)):
     creature = creature_controller.creature_controller(creature_model.Creature)
     data = await creature.create(db, creature_model.Creature(**creature_data.dict()))
     return data
 
-@router.get("/{creature_id}", response_model=creature_model.Creature)
+@router.get("/{creature_id}", response_model=creature_schemas.Creature)
 async def get_creature(creature_id:int, db: Session = Depends(get_db)):
-    campaing = creature_controller.creature_controller(creature_model.Creature)
-    data = await campaing.get(db,creature_id)
+    creature = creature_controller.creature_controller(creature_model.Creature)
+    data = await creature.get(db,creature_id)
     return data

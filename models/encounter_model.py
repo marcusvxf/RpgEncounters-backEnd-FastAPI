@@ -18,5 +18,5 @@ class Encounter(Base):
 
     groups = relationship("Group",back_populates="encounters")
     campaigns = relationship("Campaign",back_populates="encounters")
-    creatures = relationship("Creature",secondary=creature_model.encounter_creature,back_populates="encounters")
+    creatures = relationship("Creature",back_populates="encounter")
 

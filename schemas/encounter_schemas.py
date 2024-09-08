@@ -1,4 +1,5 @@
 from typing import Union
+from schemas import creature_schemas
 
 from pydantic import BaseModel
 
@@ -13,4 +14,5 @@ class Encounter(BaseModel):
     description: Union[str, None] = None
     campaign_id:Union[int, None] = None
     group_id:Union[int, None] = None
+    creatures: list[creature_schemas.Creature]
     is_active:bool

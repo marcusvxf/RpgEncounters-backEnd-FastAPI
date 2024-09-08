@@ -11,11 +11,11 @@ class controller():
         return query
     
     async def get(self,db:Session,id):
-        query = db.query(self.default_class).where({id:id}).first()
+        query = db.get(self.default_class,id)
         return query
     
     async def create(self,db: Session, data_to_create):
-        print("AQUI", data_to_create)
+
         db_table = data_to_create
         db.add(db_table)
         db.commit()

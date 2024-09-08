@@ -23,6 +23,12 @@ async def list_encounters(skip: int = 0, limit: int = 100, db: Session = Depends
     data = await encounter.list_all(db)
     return data
 
+@router.get("/{encounter_id}", response_model=encounter_schemas.Encounter)
+async def list_encounters(encounter_id:int, db: Session = Depends(get_db)):
+    encounter =encounter_controller.encounter_controller(encounter_model.Encounter)
+    data = await encounter.get(db,encounter_id)
+    return data
+
 
 @router.post("/", response_model=encounter_schemas.Encounter)
 async def create_encounter(encounter_data:encounter_schemas.EncounterCreator, db: Session = Depends(get_db)):
