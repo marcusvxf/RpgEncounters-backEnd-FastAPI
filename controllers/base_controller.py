@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 
 class controller():
     default_class = {}
-    def __init__(self,default_class_value):
+    def __init__(self,default_class_value = None):
         self.default_class = default_class_value
 
     async def list_all(self,db:Session,limit:int = 100, skip:int=0):
@@ -15,7 +15,6 @@ class controller():
         return query
     
     async def create(self,db: Session, data_to_create):
-
         db_table = data_to_create
         db.add(db_table)
         db.commit()
