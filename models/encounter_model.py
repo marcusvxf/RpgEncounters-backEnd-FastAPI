@@ -9,7 +9,8 @@ class Encounter(Base):
     __tablename__ = "tb_encounter"
 
     id = Column(Integer, primary_key=True)
-    name = Column(String(200), unique=True, index=True)
+    name = Column(String(200), index=True)
+    description = Column(String(500))
     is_active = Column(Boolean, default=True)
     campaign_id = Column(Integer,ForeignKey("tb_campaign.id"))
     group_id = Column(Integer,ForeignKey("tb_group.id"))

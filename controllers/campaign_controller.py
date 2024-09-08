@@ -1,14 +1,7 @@
 from sqlalchemy.orm import Session
-from models import campaign_model
-from schemas import campaign_schemas 
+from controllers import base_controller
 
-async def list_my(db:Session,limit:int = 100, skip:int=0):
-    query = db.query(campaign_model.Campaign).offset(skip).limit(limit).all()
-    return [query]
-
-async def create(db: Session, data: campaign_schemas.CampaignCreator):
-    db_campaign = campaign_model.Campaign(**data.dict())
-    db.add(db_campaign)
-    db.commit()
-    db.refresh(db_campaign)
-    return db_campaign
+class campaign_controller(base_controller.controller):
+    async def list_my(self,db:Session,limit:int = 100, skip:int=0):
+       
+        return 
