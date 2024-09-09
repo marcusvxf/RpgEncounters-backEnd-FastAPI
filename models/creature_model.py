@@ -14,18 +14,34 @@ class Creature(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(245))
     description = Column(String(1000))
+
+    hit_points = Column(Integer)
     life_points_dice_qtd = Column(Integer)
     life_points_dice_type = Column(Integer)
     life_points_dice_bonus = Column(Integer)
+
     challenger_level = Column(Float)
     armor_class = Column(Integer)
     alignment = Column(String(20))
+
     strength = Column(Integer)
     dexterity = Column(Integer)
     intelligence = Column(Integer)
     charisma = Column(Integer)
     wisdom = Column(Integer)
     constitution = Column(Integer)
+
+    st_strength = Column(Integer)
+    st_dexterity = Column(Integer)
+    st_intelligence = Column(Integer)
+    st_charisma = Column(Integer)
+    st_wisdom = Column(Integer)
+    st_constitution = Column(Integer)
+
+    languages = Column(String(200))
+    immunities = Column(String(200))
+    passive_perspective = Column(Integer)
+    dark_vision = Column(Integer)
     encounter_id = Column(Integer,ForeignKey("tb_encounter.id"))
     
      
