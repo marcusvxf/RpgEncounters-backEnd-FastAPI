@@ -18,21 +18,57 @@ class CreateCreatureActions(BaseModel):
     dice_bonus: int
 class CreatureCreator(BaseModel):
     name:str
+    name:str
+    description:Union[str,None] = None
     challenger_level: float
+    hit_points: int
     life_points_dice_qtd: int
     life_points_dice_type: int
     life_points_dice_bonus: int
     encounter_id:Union[int,None] = None
+    strength: int
+    dexterity: int
+    intelligence: int
+    charisma: int
+    wisdom: int
+    constitution: int
+    st_strength: int
+    st_dexterity: int
+    st_intelligence: int
+    st_charisma: int
+    st_wisdom: int
+    st_constitution: int
+    languages: str
+    immunities: Union[str,None] = None
+    passive_perspective: Union[int,None] = None
+    dark_vision: Union[int,None] = None
 
 class Creature(BaseModel):
     id:int
     name:str
     description:Union[str,None] = None
     challenger_level: float
+    hit_points: int
     life_points_dice_qtd: int
     life_points_dice_type: int
     life_points_dice_bonus: int
     is_active:bool
     encounter_id:Union[int,None] = None
-    attacks: list[CreatureActions]
+    attacks: Union[list[CreatureActions],None] = None
+    strength: int
+    dexterity: int
+    intelligence: int
+    charisma: int
+    wisdom: int
+    constitution: int
+    st_strength: int
+    st_dexterity: int
+    st_intelligence: int
+    st_charisma: int
+    st_wisdom: int
+    st_constitution: int
+    languages: str
+    immunities: Union[str,None] = None
+    passive_perspective: Union[int,None] = None
+    dark_vision: Union[int,None] = None
 
