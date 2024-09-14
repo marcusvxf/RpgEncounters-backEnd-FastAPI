@@ -4,10 +4,12 @@ from database import SessionLocal
 from schemas import creature_schemas
 from sqlalchemy.orm import Session
 from models import creature_model
+from auth import verify_token
 
 
 router = APIRouter(prefix="/creature",
     tags=["creature"],
+    dependencies=[Depends(verify_token)],
     responses={404: {"description": "Not found"}},)
 
 def get_db():
