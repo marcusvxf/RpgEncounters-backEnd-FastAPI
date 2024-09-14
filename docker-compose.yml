@@ -9,7 +9,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rpg123
       MYSQL_DATABASE: rpgEncounter
-      MYSQL_USER: admin
+      MYSQL_USER: adminuser
       MYSQL_PORT: 3306
       MYSQL_PASSWORD: rpg123
     volumes:
